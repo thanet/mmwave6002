@@ -10,6 +10,10 @@ respiratory/heart-rate LD6002. Confirmed by matching a live capture against Hi-L
 `HLK-LD6002B human presence Communication protocol.pdf` (TinyFrame format) — decoded real
 target coordinates (x≈0.16m, y≈0.82m, z≈0.08m) matching a person sitting in front of the sensor.
 
+`src/main.cpp` is now a full live decoder (state machine + verified checksums, not a raw hex
+dump) — tested 2026-08-23 tracking a moving person continuously: 484 frames decoded, 0 checksum
+failures, coordinates tracking real movement (x -0.03m→0.5m, y 0.72m→1.5m) in real time.
+
 **Key finding: the working UART baud rate is 115200**, not the 1,382,400 commonly quoted for
 this chip family — confirmed by sweeping candidate bauds and finding 115200 is the only one
 that produces valid TinyFrame `01 50 ...` headers with matching checksums. A generic CP210x
