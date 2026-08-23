@@ -1,0 +1,13 @@
+# PlatformIO build artifacts
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# editor / OS cruft
+.vscode/
+Thumbs.db
+desktop.ini
+
+# large vendor downloads — keep locally, don't bloat the repo
+*.zip
+*.rar
